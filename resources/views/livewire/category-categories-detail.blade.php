@@ -25,11 +25,14 @@
             <div class="mt-5">
                 <div>
                     <x-inputs.group class="w-full">
-                        <x-inputs.select name="category.category_id" label="Category" wire:model="category.category_id">
-                            @php $selected = old('category_id', ($editing ? $category->category_id : ''));  @endphp
-                            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Category</option>
-                            @foreach($category->get()->pluck('name', 'id') as $value => $label)
-                            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                        <x-inputs.select
+                            name="category.category_id"
+                            label="Category"
+                            wire:model="category.category_id"
+                        >
+                            <option value="null" disabled>Please select the Category</option>
+                            @foreach($categoriesForSelect as $value => $label)
+                            <option value="{{ $value }}"  >{{ $label }}</option>
                             @endforeach
                         </x-inputs.select>
                     </x-inputs.group>
@@ -43,13 +46,57 @@
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.text
-                            name="category.icon"
-                            label="Icon"
-                            wire:model="category.icon"
-                            maxlength="255"
-                            placeholder="Icon"
-                        ></x-inputs.text>
+                        <div
+                            image-url="{{ $editing && $category->icon ? \Storage::url($category->icon) : '' }}"
+                            x-data="imageViewer()"
+                            @refresh.window="refreshUrl()"
+                        >
+                            <x-inputs.partials.label
+                                name="categoryIcon"
+                                label="Icon"
+                            ></x-inputs.partials.label
+                            ><br />
+
+                            <!-- Show the image -->
+                            <template x-if="imageUrl">
+                                <img
+                                    :src="imageUrl"
+                                    class="
+                                        object-cover
+                                        rounded
+                                        border border-gray-200
+                                    "
+                                    style="width: 100px; height: 100px;"
+                                />
+                            </template>
+
+                            <!-- Show the gray box when image is not available -->
+                            <template x-if="!imageUrl">
+                                <div
+                                    class="
+                                        border
+                                        rounded
+                                        border-gray-200
+                                        bg-gray-100
+                                    "
+                                    style="width: 100px; height: 100px;"
+                                ></div>
+                            </template>
+
+                            <div class="mt-2">
+                                <input
+                                    type="file"
+                                    name="categoryIcon"
+                                    id="categoryIcon{{ $uploadIteration }}"
+                                    wire:model="categoryIcon"
+                                    @change="fileChosen"
+                                />
+                            </div>
+
+                            @error('categoryIcon')
+                            @include('components.inputs.partials.error')
+                            @enderror
+                        </div>
                     </x-inputs.group>
                 </div>
             </div>
@@ -89,6 +136,9 @@
                         />
                     </th>
                     <th class="px-4 py-3 text-left">
+                        @lang('crud.category_categories.inputs.category_id')
+                    </th>
+                    <th class="px-4 py-3 text-left">
                         @lang('crud.category_categories.inputs.name')
                     </th>
                     <th class="px-4 py-3 text-left">
@@ -98,7 +148,6 @@
                 </tr>
             </thead>
             <tbody class="text-gray-600">
-                {{-- @dd($category) --}}
                 @foreach ($children as $category)
                 <tr class="hover:bg-gray-100">
                     <td class="px-4 py-3 text-left">
@@ -109,10 +158,15 @@
                         />
                     </td>
                     <td class="px-4 py-3 text-left">
+                        {{ optional($category->category)->name ?? '-' }}
+                    </td>
+                    <td class="px-4 py-3 text-left">
                         {{ $category->name ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ $category->icon ?? '-' }}
+                        <x-partials.thumbnail
+                            src="{{ $category->icon ? \Storage::url($category->icon) : '' }}"
+                        />
                     </td>
                     <td class="px-4 py-3 text-right" style="width: 134px;">
                         <div
@@ -136,7 +190,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="4">
                         <div class="mt-10 px-4">
                             {{ $children->render() }}
                         </div>

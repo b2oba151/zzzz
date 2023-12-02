@@ -87,6 +87,7 @@ return [
         'edit_title' => 'Edit Category',
         'show_title' => 'Show Category',
         'inputs' => [
+            'category_id' => 'Category',
             'name' => 'Name',
             'icon' => 'Icon',
         ],

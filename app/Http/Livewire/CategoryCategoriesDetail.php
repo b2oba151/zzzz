@@ -6,15 +6,20 @@ use Livewire\Component;
 use App\Models\Category;
 use Illuminate\View\View;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CategoryCategoriesDetail extends Component
 {
     use WithPagination;
+    use WithFileUploads;
     use AuthorizesRequests;
     public Category $currentCategory;
 
     public Category $category;
+    public $categoryIcon;
+    public $uploadIteration = 0;
 
     public $selected = [];
     public $editing = false;
@@ -24,14 +29,13 @@ class CategoryCategoriesDetail extends Component
     public $modalTitle = 'New Category';
 
     protected $rules = [
+        'category.category_id' => ['nullable', 'exists:categories,id'],
         'category.name' => ['required', 'max:255', 'string'],
-        'category.icon' => ['nullable', 'max:255', 'string'],
-        'category.category_id' => ['nullable'],
+        'categoryIcon' => ['image', 'max:1024', 'nullable'],
     ];
 
     public function mount(Category $category): void
     {
-        $this->currentCategory = $category;
         $this->category = $category;
         $this->resetCategoryData();
     }
@@ -39,6 +43,9 @@ class CategoryCategoriesDetail extends Component
     public function resetCategoryData(): void
     {
         $this->category = new Category();
+
+        $this->categoryIcon = null;
+        $this->category->category_id = null;
 
         $this->dispatchBrowserEvent('refresh');
     }
@@ -86,7 +93,13 @@ class CategoryCategoriesDetail extends Component
             $this->authorize('update', $this->category);
         }
 
+        if ($this->categoryIcon) {
+            $this->category->icon = $this->categoryIcon->store('public');
+        }
+
         $this->category->save();
+
+        $this->uploadIteration++;
 
         $this->hideModal();
     }
@@ -95,7 +108,15 @@ class CategoryCategoriesDetail extends Component
     {
         $this->authorize('delete-any', Category::class);
 
-        Category::whereIn('id', $this->selected)->delete();
+        collect($this->selected)->each(function (string $id) {
+            $category = Category::findOrFail($id);
+
+            if ($category->icon) {
+                Storage::delete($category->icon);
+            }
+
+            $category->delete();
+        });
 
         $this->selected = [];
         $this->allSelected = false;

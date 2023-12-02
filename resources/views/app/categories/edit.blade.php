@@ -60,7 +60,7 @@
             @can('view-any', App\Models\Category::class)
             <x-partials.card class="mt-5">
                 <x-slot name="title"> Categories </x-slot>
-                {{-- @dd($category) --}}
+
                 <livewire:category-categories-detail :category="$category" />
             </x-partials.card>
             @endcan @can('view-any', App\Models\Post::class)
