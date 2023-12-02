@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CategoryPostsController;
 use App\Http\Controllers\Api\CategoryCategoriesController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,34 @@ Route::name('api.')
 
         Route::apiResource('posts', PostController::class);
     });
+
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
+
+    Route::middleware(['auth:sanctum', 'verified'])
+        ->get('/dashboard', function () {
+            return view('dashboard');
+        })
+        ->name('dashboard');
+
+    Route::prefix('/')
+        ->middleware(['auth:sanctum', 'verified'])
+        ->group(function () {
+            Route::resource('users', UserController::class);
+            Route::resource('categories', CategoryController::class);
+            Route::resource('posts', PostController::class);
+        });
+
+
+        Route::get('/erreur', function () {
+            return view('layouts.erreur');
+        })->name('erreur');
+
+        Route::get('/wiki', function () {
+            return view('pages.wiki');
+        })->name('wiki.wiki');
+
+        Route::get('/dsfdsf', function () {
+            return view('pages.wiki');
+        })->name('google.search');
