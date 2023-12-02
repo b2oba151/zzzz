@@ -1,0 +1,79 @@
+conky.config = {
+
+  background = true,
+
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_transparent = false,
+    own_window_type = 'desktop',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    double_buffer = true,
+    no_buffers = true,
+
+    use_spacer = 'none',
+    use_xft = true,
+    xftalpha = 1,
+    font = 'Sans:size=10',
+    update_interval = 1,
+    uppercase = false,
+    override_utf8_locale = true,
+    stippled_borders = 1,
+    border_width = 5,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    show_graph_scale = true,
+    show_graph_range = true,
+
+    alignment = 'top_left',
+    gap_x = 10,
+    gap_y = 10,
+
+    net_avg_samples = 1,
+    cpu_avg_samples = 6,
+    short_units = true,
+    pad_percents = 2,
+    text_buffer_size = 2048,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+}
+
+conky.text = [[
+
+${font Droid Sans Mono:size=9}
+${color black}SYSTEM:${color #510289}
+${color black}Distribution:${color #510289} ${texeci 900 cat /etc/gentoo-release} ${color black}with kernel${color #510289} $kernel 
+${color black}Uptime:${color #510289} $uptime  ${goto 250}${color black}Load average:${color #510289} $loadavg
+${color black}RAM: ${color #510289} $mem / $memmax ($memperc%)  ${goto 250}${color black}SWAP: ${color #510289} ${swap} / ${swapmax} (${swapperc}%)
+${color black}CPU: ${color #510289}${texeci 2 sensors | grep "CPUTIN"| awk '{ print $2}'} - ${color black}FAN: ${color #510289}${texeci 2 sensors | grep fan3 | awk '{ print $2}'} tr/mn ${goto 250}${color black}GPU: ${color #510289}${texeci 2 sensors | grep "edge"| awk '{ print $2}'} - ${color black}FAN: ${color #510289}${texeci 2 sensors | grep fan1 | head -1 | awk '{ print $2}'} tr/mn 
+${color black}Root: ${color #510289}${fs_used /} / ${fs_size /} (${fs_used_perc /}%) ${goto 250}${color black}/boot: ${color #510289}${fs_used /boot} / ${fs_size /boot} (${fs_used_perc /boot}%) 
+${color black}/home: ${color #510289}${fs_used /home} / ${fs_size /home} (${fs_used_perc /home}%) ${goto 250}${color black}DATA: ${color #510289}${fs_used /media/DATA} / ${fs_size /media/DATA} (${fs_used_perc /media/DATA}%)
+${color black}SDD: ${color #510289}${texeci 2 echo $(($(udisksctl dump /dev/sda | grep Temp | tail -1 | awk '{ print $2 ; }' | cut -d'.' -f1)-273))°C} ${goto 250}${color black}HDD: ${color #510289}${texeci 2 echo $(($(udisksctl dump /dev/sdb | grep Temp | head -2 | tail -1 | awk '{ print $2 ; }' | cut -d'.' -f1)-273))°C}  
+${color black}IP eth0 : ${color #510289}${addr eth0} ${goto 250}${color black}DL:${color #510289} ${downspeedf eth0}k/s ${goto 350} ${color black}UP:${color #510289} ${upspeedf eth0}k/s
+
+${color black}EPHEMERIDE :${color #510289}
+${color black}Nous sommes le ${color #510289}${texeci 1000 date "+%A %d %B %Y" }
+${color black}Fête du jour : ${color #510289}${texeci 1000 wget -O - -q  http://fetedujour.fr/  --user-agent="Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0" | grep "<span>Fête du jour" | head -1 | cut -d">" -f4 | cut -d"<" -f1 | sed -e 's/Nativité/Adrien/' }
+${color black}Mot du jour : ${color #510289}${texeci 1000 wget -O - -q http://www.wikebec.org/ | grep fas | cut -d">" -f5 | cut -d"<" -f1} ${color black}: ${color #510289}${texeci 1000 wget -O - -q http://www.wikebec.org/ | grep '<li>' | tail -1 | cut -d'>' -f2 | cut -d'<' -f1}
+${color black}Météo : ${color #510289}${texeci 3600 curl -s 'wttr.in/dijon?qT0&lang=fr' | head -7}
+
+${color black}DIFFUSION FM MAISON (108.0 FM) :${color #510289}
+${color black}Programmation actuelle : ${color #510289}${texeci 30 wget -O - -q http://cluster.linuxtricks.fr/radio/api/prog.php }
+${color black}En ce moment : ${color #510289}${texeci 30 wget -O - -q http://cluster.linuxtricks.fr/radio/api/song.php}
+
+${color black}DIVIA TOTEM :${color #510289}
+${color black}BUS : ${color #510289}${texeci 20 /home/adrien/.adrien/divia-totem-parser/divia-totem-parser.pl -l=90 -a=688 }
+${color black}TRAM : ${color #510289}${texeci 20 /home/adrien/.adrien/divia-totem-parser/divia-totem-parser.pl -l=96 -a=1477 }
+${color black}TRAM : ${color #510289}${texeci 20 /home/adrien/.adrien/divia-totem-parser/divia-totem-parser.pl -l=185 -a=1510 }
+${color black}TRAM : ${color #510289}${texeci 20 /home/adrien/.adrien/divia-totem-parser/divia-totem-parser.pl -l=81 -a=1576 }
+${color black}TRAM : ${color #510289}${texeci 20 /home/adrien/.adrien/divia-totem-parser/divia-totem-parser.pl -l=82 -a=1542 }
+
+${color black}PENSE BETE :${color #510289}
+${texeci 60 cat /home/adrien/notes }
+
+]]
+
