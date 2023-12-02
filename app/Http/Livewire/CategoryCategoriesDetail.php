@@ -36,6 +36,7 @@ class CategoryCategoriesDetail extends Component
 
     public function mount(Category $category): void
     {
+        $this->currentCategory = $category;
         $this->category = $category;
         $this->resetCategoryData();
     }
@@ -139,7 +140,7 @@ class CategoryCategoriesDetail extends Component
     public function render(): View
     {
         return view('livewire.category-categories-detail', [
-            // 'categories' => $this->category->categories()->paginate(20),
+         'categories' => $this->category->categories()->paginate(20),
             'children' => $this->currentCategory->categories()->paginate(20),
         ]);
     }

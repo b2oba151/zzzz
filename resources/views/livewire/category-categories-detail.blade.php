@@ -31,7 +31,7 @@
                             wire:model="category.category_id"
                         >
                             <option value="null" disabled>Please select the Category</option>
-                            @foreach($categoriesForSelect as $value => $label)
+                            @foreach($category->get()->pluck('name', 'id') as $value => $label)
                             <option value="{{ $value }}"  >{{ $label }}</option>
                             @endforeach
                         </x-inputs.select>
