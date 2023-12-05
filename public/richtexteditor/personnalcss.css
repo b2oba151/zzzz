@@ -1,0 +1,33 @@
+
+/*classe a ajouter au div pecis class="richtexteditor purple_editor"
+<script>
+    var editorpurplecfg = {}
+    editorpurplecfg.toolbar = "default"; // default ou basic
+    editorpurplecfg.skin = "rounded-corner";
+	var editorpurple = new RichTextEditor('#mon_wyziwig' ,editorpurplecfg);
+</script>
+*/
+.purple_editor {
+    background-color: #b19cd9 !important;
+    border-color: #8470a8 !important;
+}
+
+    .purple_editor rte-toolbar {
+        background-color: #b19cd9 !important;
+    }
+
+    .purple_editor rte-bottom {
+        background-color: #b19cd9 !important;
+    }
+
+    .purple_editor rte-dialog-inner {
+        background-color: #b19cd9 !important;
+    }
+
+    .purple_editor rte-line-spliter {
+        background-color: #b19cd9 !important;
+    }
+
+    .purple_editor rte-dialog-header {
+    }
+/* --------------------------------------------------- */

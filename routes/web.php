@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\PageEditor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -27,6 +28,10 @@ Route::middleware(['auth:sanctum', 'verified'])
     })
     ->name('dashboard');
 
+    Route::get('dashboard/page', [PageEditor::class, 'index'])->name(
+        'pages.index'
+    );
+
 Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
@@ -35,7 +40,7 @@ Route::prefix('/')
         Route::resource('posts', PostController::class);
     });
 
-    
+
     Route::get('/erreur', function () {
         return view('layouts.erreur');
     })->name('erreur');

@@ -1,5 +1,19 @@
 <script data-cfasync="false" src="{{ asset('cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
 
+{{-- wyzipin --}}
+<script>
+    var editor2cfg = {}
+	editor2cfg.toolbar = "full"; // default , full ou basic
+    editor2cfg.skin = "gray";
+	var editor2 = new RichTextEditor("#inp_editor1", editor2cfg);
+
+    // var editor1cfg = {}
+	// editor1cfg.toolbar = "default"; // default , full ou basic
+	// var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
+</script>
+
+
+
 <script>
     <!--
     //Variables PHPBoost

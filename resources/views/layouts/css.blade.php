@@ -20,3 +20,11 @@
 <link rel="stylesheet" href="{{ asset('user/templates/upload.css') }}" type="text/css" media="screen, print" />
 <link rel="stylesheet" href="templates/pages.css" type="text/css" media="screen, print" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{{ asset('richtexteditor/rte_theme_default.css') }}" type="text/css" media="screen, print" />
+<link rel="stylesheet" href="{{ asset('richtexteditor/personnalcss.css') }}" type="text/css" media="screen, print" />
+
+
+<script data-cfasync="false" src="{{ asset('richtexteditor/rte.js') }}"></script>
+<script data-cfasync="false" src="{{ asset('richtexteditor/plugins/all_plugins.js') }}"></script>
+<script data-cfasync="false" src="{{ asset('richtexteditor/lang/rte-lang-fr.js') }}"></script>
