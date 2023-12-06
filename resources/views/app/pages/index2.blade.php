@@ -86,8 +86,7 @@
                         <li><a href="#paragraph-fonctionnement-de-chroot">Fonctionnement de chroot</a></li>
                         <li><a href="#paragraph-exemples">Exemples</a>
                             <ol class="wiki-list wiki-list-2">
-                                <li><a href="#paragraph-chroot-d-un-systeme-linux-complet">chroot d'un système Linux
-                                        complet</a></li>
+                                <li><a href="#paragraph-chroot-d-un-systeme-linux-complet">chroot d'un système Linux complet</a></li>
                             </ol>
                         </li>
                         <li><a href="#paragraph-quitter-le-chroot">Quitter le chroot</a></li>
