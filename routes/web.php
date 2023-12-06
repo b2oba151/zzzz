@@ -31,6 +31,12 @@ Route::middleware(['auth:sanctum', 'verified'])
     Route::get('dashboard/page', [PageEditor::class, 'index'])->name(
         'pages.index'
     );
+    Route::get('dashboard/page2', [PageEditor::class, 'index2'])->name(
+        'pages.index2'
+    );
+    Route::get('dashboard/test', [PageEditor::class, 'index3'])->name(
+        'pages.test'
+    );
 
 Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
