@@ -28,3 +28,4 @@
 <script data-cfasync="false" src="{{ asset('richtexteditor/rte.js') }}"></script>
 <script data-cfasync="false" src="{{ asset('richtexteditor/plugins/all_plugins.js') }}"></script>
 <script data-cfasync="false" src="{{ asset('richtexteditor/lang/rte-lang-fr.js') }}"></script>
+<x-tinymce-config/>

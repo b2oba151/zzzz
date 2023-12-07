@@ -38,6 +38,11 @@ Route::middleware(['auth:sanctum', 'verified'])
         'pages.test'
     );
 
+    Route::get('/dashboard/tiny', function () {
+        return view('app.pages.tinymce');
+    })->name('tiny');
+
+
 Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
