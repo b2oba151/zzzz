@@ -20,6 +20,8 @@
 <link rel="stylesheet" href="{{ asset('user/templates/upload.css') }}" type="text/css" media="screen, print" />
 <link rel="stylesheet" href="templates/pages.css" type="text/css" media="screen, print" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 <link rel="stylesheet" href="{{ asset('richtexteditor/rte_theme_default.css') }}" type="text/css" media="screen, print" />
 <link rel="stylesheet" href="{{ asset('richtexteditor/personnalcss.css') }}" type="text/css" media="screen, print" />
