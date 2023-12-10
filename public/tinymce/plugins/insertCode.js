@@ -10,7 +10,9 @@
 
         // Ajouter le bouton à la barre d'outils
         editor.ui.registry.addButton('insertCode', {
-            text: 'Insérer le Code',
+            text: 'Insérer Code',
+            tooltip: "Insert  Code",
+            icon: 'user',
             onAction: function () {
                 // Utiliser SweetAlert pour obtenir les valeurs
                 Swal.fire({
@@ -47,6 +49,32 @@
                 });
             }
         });
+
+        /*editor.ui.registry.addButton('insertCode', {
+            text: 'Insérer le Code',
+            onAction: function () {
+                // Utiliser la boîte de dialogue native de TinyMCE
+                editor.windowManager.open({
+                    title: 'Insérer le Code',
+                    body: [
+                        {
+                            type: 'textbox',
+                            name: 'title',
+                            label: 'Titre'
+                        },
+                        {
+                            type: 'textbox',
+                            name: 'slot',
+                            multiline: true,
+                            label: 'Contenu'
+                        }
+                    ],
+                    onsubmit: function (e) {
+                        insererCodeHTML(e.data.title, e.data.slot);
+                    }
+                });
+            }
+        });*/
 
         // Ajouter le bouton à la barre de menus
         editor.ui.registry.addMenuItem('insertCode', {
@@ -88,8 +116,74 @@
             }
         });
 
+        let toggleState = false;
+        // Ajouter le bouton à  menu a la barre d'outils
+        editor.ui.registry.addMenuButton("mybutton", {
+            text: "Mon btn",
+            fetch: (callback) => {
+                const items = [
+                    {
+                        type: "menuitem",
+                        text: "Menu item 1",
+                        onAction: () =>
+                            editor.insertContent(
+                                "&nbsp;<em>You clicked menu item 1!</em>"
+                            ),
+                    },
+                    {
+                        type: "nestedmenuitem",
+                        text: "Menu item 2",
+                        icon: "user",
+                        getSubmenuItems: () => [
+                            {
+                                type: "menuitem",
+                                text: "Sub menu item 1",
+                                icon: "unlock",
+                                onAction: () =>
+                                    editor.insertContent(
+                                        "&nbsp;<em>You clicked Sub menu item 1!</em>"
+                                    ),
+                            },
+                            {
+                                type: "menuitem",
+                                text: "Sub menu item 2",
+                                icon: "lock",
+                                onAction: () =>
+                                    editor.insertContent(
+                                        "&nbsp;<em>You clicked Sub menu item 2!</em>"
+                                    ),
+                            },
+                        ],
+                    },
+                    {
+                        type: "togglemenuitem",
+                        text: "Toggle menu item",
+                        onAction: () => {
+                            toggleState = !toggleState;
+                            editor.insertContent(
+                                "&nbsp;<em>You toggled a menuitem " +
+                                    (toggleState ? "on" : "off") +
+                                    "</em>"
+                            );
+                        },
+                        onSetup: (api) => {
+                            api.setActive(toggleState);
+                            return () => {};
+                        },
+                    },
+                ];
+                callback(items);
+            },
+        });
+
+
+
+
         return {
             // D'autres fonctions de plugin peuvent être ajoutées ici
         };
     });
 })();
+
+
+
