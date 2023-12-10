@@ -31,7 +31,7 @@
         selector: 'textarea#myeditorinstance',
         skin: useDarkMode ? 'oxide-dark' : 'oxide',
         content_css:[
-                useDarkMode ? 'dark' : 'default',
+                useDarkMode ? 'oxide-dark' : 'default',
                 '/templates/default/theme/default.css',
                 '/kernel/lib/css/font-awesome/css/font-awesome.css',
                 '/kernel/lib/css/font-awesome-animation/css/font-awesome-animation.css',
