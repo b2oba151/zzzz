@@ -3,7 +3,7 @@
  Contient les classes globales au site, peuvent etre utilisees partout.
  - Mise en forme du texte
  - Mise en forme du contenu
- - Les Icones specifiques PHPBoost de FontAwesome 
+ - Les Icones specifiques PHPBoost de FontAwesome
  - Systeme d upload
 --------------------------------------*/
 
@@ -76,6 +76,7 @@ h2.formatter-title {  }
 h3.formatter-title { margin-left: 1.5rem; }
 h4.formatter-title { margin-left: 3rem; }
 h5.formatter-title { margin-left: 5rem; }
+h6.formatter-title { margin-left: 7rem; }
 
 h4.formatter-title,
 h5.formatter-title {
