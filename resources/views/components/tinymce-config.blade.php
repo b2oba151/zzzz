@@ -59,9 +59,33 @@
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
         language: 'fr_FR',
         plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion insertCode',
+
+
+        // Formats personnaliser
+        // block_formats: 'Paragraph=p; Header 1=h1; Header 2=h2; Header 3=h3',
+        // formats: {
+        //     alignleft: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'left' },
+        //     aligncenter: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'center' },
+        //     alignright: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'right' },
+        //     alignfull: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'full' },
+        //     bold: { inline: 'span', classes: 'bold' },
+        //     italic: { inline: 'span', classes: 'italic' },
+        //     underline: { inline: 'span', classes: 'underline', exact: true },
+        //     strikethrough: { inline: 'del' },
+        //     customformat: { inline: 'span', styles: { color: '#00ff00', fontSize: '20px' }, attributes: { title: 'My custom format'} , classes: 'example1'},
+        //     Titre1_P: { block: 'h2', attributes: { id: 'My custom format'} , classes: 'formatter-title wiki-paragraph-2'},
+        // },
+        // style_formats: [
+        //     { title: 'Custom format', format: 'customformat' },
+        //     { title: 'Titre1_P',  format: 'Titre1_P' },
+        // ],
+
+
+
         external_plugins: {
             'insertCode' : 'plugins/insertCode.js',
             'insertNote' : 'plugins/insertNote.js',
+            'titres' : 'plugins/titres.js',
             'jour' : 'plugins/date.js',
             'dialogue' : 'plugins/dialogue.js',
         },
@@ -78,7 +102,7 @@
             help: { title: 'Help', items: 'help' }
         },
 
-        toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | insertCode mybutton  toggleDateButton splitDateButton menuDateButton dialogue-example insertNote",
+        toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | insertCode mybutton  toggleDateButton splitDateButton menuDateButton dialogue-example insertNote splitTitreButton",
 
         // toolbar: "undo redo | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table media pageembed | lineheight  outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print export | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck",
 
