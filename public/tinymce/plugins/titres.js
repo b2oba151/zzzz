@@ -6,7 +6,7 @@
     function getHeadingHTML(level, text) {
         const headingId = toSnakeCase(text);
         const headingClass = `formatter-title wiki-paragraph-${level}`;
-        return `<h${level} class="${headingClass}" id="${headingId}">${text}</h${level}><br/>`;
+        return `<h${level} class="${headingClass}" id="${headingId}">${text}</h${level}>`;
     }
 
     function getParagraphWithMargin( marginLeft, text) {

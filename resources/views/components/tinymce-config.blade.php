@@ -84,11 +84,9 @@
 
 
         external_plugins: {
-            'insertCode' : 'plugins/insertCode.js',
             'insertNote' : 'plugins/insertNote.js',
             'titres' : 'plugins/titres.js',
-            'jour' : 'plugins/date.js',
-            'dialogue' : 'plugins/dialogue.js',
+            'dates' : 'plugins/date.js',
         },
         editimage_cors_hosts: ['picsum.photos'],
         // menubar: 'file edit view insert format tools table help',
@@ -103,7 +101,7 @@
             help: { title: 'Help', items: 'help' }
         },
 
-        toolbar: "insertfile undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | insertCode mybutton  toggleDateButton splitDateButton menuDateButton dialogue-example insertNote splitTitreButton splitParagraphMarginLeft",
+        toolbar: "insertfile undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | splitDateButton insertNote splitTitreButton splitParagraphMarginLeft",
 
         // toolbar: "undo redo | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table media pageembed | lineheight  outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print export | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck",
 
@@ -130,12 +128,12 @@
             }
         ],
         image_list: [{
-                title: 'My page 1',
-                value: 'https://www.linuxtricks.fr/upload/wiki_divers.png'
+                title: 'My image 1',
+                value: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.powertrafic.fr%2Fwp-content%2Fuploads%2F2023%2F04%2Fimage-ia-exemple.png&tbnid=mQdKko-yiwTWIM&vet=12ahUKEwjF2sOHxKeDAxU_AfsDHRacCi8QMygAegQIARBG..i&imgrefurl=https%3A%2F%2Fwww.powertrafic.fr%2Foutils-ia-images%2F&docid=KEinTOh_AuNkmM&w=1140&h=570&q=image&ved=2ahUKEwjF2sOHxKeDAxU_AfsDHRacCi8QMygAegQIARBG'
             },
             {
-                title: 'My page 2',
-                value: 'http://www.moxiecode.com'
+                title: 'My image 2',
+                value: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatusneo.com%2Fwp-content%2Fuploads%2F2023%2F02%2FMicrosoftTeams-image551ad57e01403f080a9df51975ac40b6efba82553c323a742b42b1c71c1e45f1.jpg&tbnid=7I8YRFDqoIMFoM&vet=12ahUKEwjF2sOHxKeDAxU_AfsDHRacCi8QMyglegUIARCaAQ..i&imgrefurl=https%3A%2F%2Fstatusneo.com%2Ffrom-pixels-to-reality-how-ai-generated-images-are-revolutionizing-industries%2F&docid=hxl8Tp9ZhTfgOM&w=1024&h=1024&q=image&ved=2ahUKEwjF2sOHxKeDAxU_AfsDHRacCi8QMyglegUIARCaAQ'
             }
         ],
         image_class_list: [{

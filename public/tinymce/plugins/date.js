@@ -1,5 +1,5 @@
 (function () {
-    tinymce.PluginManager.add("jour", function (editor) {
+    tinymce.PluginManager.add("dates", function (editor) {
         /* Helper functions */
         const toDateHtml = (date) =>
             `<time datetime="${date.toString()}">${date.toDateString()}</time>`;
@@ -52,7 +52,7 @@
         /* Split button that lists 3 formats, and inserts the date in the selected format when clicked */
         editor.ui.registry.addSplitButton("splitDateButton", {
             text: "Insert Date",
-            onAction: (_) => editor.insertContent("<p>Its Friday!</p>"),
+            onAction: (_) => editor.insertContent(toDateHtml(new Date()),),
             onItemAction: (buttonApi, value) => editor.insertContent(value),
             fetch: (callback) => {
                 const items = [
@@ -87,6 +87,12 @@
                         text: "Insert Date",
                         onAction: (_) =>
                             editor.insertContent(toDateHtml(new Date())),
+                    },
+                    {
+                        type: "menuitem",
+                        text: "Insert Date with GMT",
+                        onAction: (_) =>
+                            editor.insertContent(toGmtHtml(new Date())),
                     },
                     {
                         type: "nestedmenuitem",
