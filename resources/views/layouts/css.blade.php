@@ -31,3 +31,27 @@
 <script data-cfasync="false" src="{{ asset('richtexteditor/plugins/all_plugins.js') }}"></script>
 <script data-cfasync="false" src="{{ asset('richtexteditor/lang/rte-lang-fr.js') }}"></script>
 <x-tinymce-config/>
+
+
+
+
+
+
+
+
+{{-- code highlight --}}
+
+{{-- <link rel="stylesheet" href="{{ asset('highlightjs/hjs.css') }}">
+<script src="{{ asset('highlightjs/hjs.js') }}"></script>
+<script>hljs.highlightAll();</script> --}}
+
+{{-- all-hallows-eve | blackboard | dreamweaver | espresso-libre | github | kimbie-dark | kimbie-light | monokai | obsidian | paraiso-dark
+paraiso-light | pastie |rainbow | solarized-dark | solarized-light | sunburst |tomorrow-night | tricolore | twilight | zenburnesque --}}
+
+<link href="{{ asset('rainbow/themes/css/github.css') }}" rel="stylesheet" type="text/css" media="screen">
+<script src="{{ asset('rainbow/dist/rainbow.js') }}"></script>
+<script src="{{ asset('rainbow/src/language/generic.js') }}"></script>
+<script src="{{ asset('rainbow/src/language/python.js') }}"></script>
+<script src="{{ asset('rainbow/src/language/php.js') }}"></script>
+
+{{-- fin code highlight --}}
