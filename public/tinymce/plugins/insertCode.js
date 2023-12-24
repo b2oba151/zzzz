@@ -41,10 +41,13 @@
                         label: 'Choisissez le language',
                         enabled: true,
                         items: [
+                            { text: 'Generic', value: 'generic' },
                             { text: 'Bash', value: 'shell' },
+                            { text: 'Php', value: 'php' },
                             { text: 'Python', value: 'python' },
                             { text: 'Java', value: 'java' },
                             { text: 'Sql', value: 'sql' },
+                            { text: 'Json', value: 'json' },
                             { text: 'Html', value: 'html' },
                             { text: 'Css', value: 'css' },
                             { text: 'Javascript', value: 'javascript' },
@@ -88,9 +91,12 @@
             onSubmit: (api) => {
                 const data = api.getData();
                 const checkbox = data.isNewLine ? "true" : "false";
+                const languageName = data.selectedLanguage;
 
                 const uniqueId = generateNextCopyCodeId();
-
+                if (data.selectedLanguage === 'generic') {
+                    data.selectedLanguage = '';
+                }
                 tinymce.activeEditor.execCommand(
                     "mceInsertContent",
                     false,
@@ -104,7 +110,7 @@
                         <span class="formatter-title">Code ${data.selectedLanguage} :</span>
                         <div id="${uniqueId}-content" class="formatter-content copy-code-content">
                             <pre>
-                                <code data-language="${data.selectedLanguage}">
+                                <code data-language="${languageName}">
 ${data.codeTexte}
                                 </code>
                             </pre>

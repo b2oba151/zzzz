@@ -103,7 +103,7 @@
 <div class="formatter-content">chroot - ex&eacute;cuter une commande ou un shell interactif avec un r&eacute;pertoire racine sp&eacute;cial</div>
 </div>
 <h2><br><br>
-    <pre><code data-language="php">
+    <pre><code data-language="rainbow">
 use App\Http\Controllers\PageEditor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -206,131 +206,38 @@ Route::prefix('/')
 
 
 
-
-
-
-
-
-
-
-<div class="formatter-container formatter-code code-shell"><span id="copy-code-1" class="copy-code" title="Copier vers le presse-papier"> <em class="fa fa-clipboard"> <span class="copy-code-txt">Copier vers le presse-papier</span> </em> </span> <span class="formatter-title">Code shell :</span>
+<div class="formatter-container formatter-code code-"><span id="copy-code-1" class="copy-code" title="Copier vers le presse-papier"> <em class="fa fa-clipboard"> <span class="copy-code-txt">Copier vers le presse-papier</span> </em> </span> <span class="formatter-title">Code :</span>
 <div id="copy-code-1-content" class="formatter-content copy-code-content">
-<pre>                                <code data-language="shell">
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-ZSH_DISABLE_COMPFIX=true
+<pre>                                <code data-language="generic">
+        class WarpWhistle(object):
+            TEMPO = 'tempo'
+            VOLUME = 'volume'
+            TIMBRE = 'timbre'
+            ARPEGGIO = 'arpeggio'
+            INSTRUMENT = 'instrument'
+            PITCH = 'pitch'
+            OCTAVE = 'octave'
+            SLIDE = 'slide'
+            Q = 'q'
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
+            ABSOLUTE_NOTES = 'X-ABSOLUTE-NOTES'
+            TRANSPOSE = 'X-TRANSPOSE'
+            COUNTER = 'X-COUNTER'
+            X_TEMPO = 'X-TEMPO'
+            SMOOTH = 'X-SMOOTH'
+            N106 = 'EX-NAMCO106'
+            FDS = 'EX-DISKFM'
+            VRC6 = 'EX-VRC6'
+            PITCH_CORRECTION = 'PITCH-CORRECTION'
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] &amp;&amp; printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:'/home/b2oba/.local/share/nemo/scripts/'
-export PATH="$PATH:$HOME/.local/bin"
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+            CHIP_N106 = 'N106'
+            CHIP_FDS = 'FDS'
+            CHIP_VRC6 = 'VRC6'
                                 </code>
                             </pre>
 </div>
 </div>
 <p>&nbsp;</p>
-<div class="formatter-container formatter-code code-python"><span id="copy-code-2" class="copy-code" title="Copier vers le presse-papier"> <em class="fa fa-clipboard"> <span class="copy-code-txt">Copier vers le presse-papier</span> </em> </span> <span class="formatter-title">Code python :</span>
-<div id="copy-code-2-content" class="formatter-content copy-code-content">
-<pre>                                <code data-language="python">
-    def reset(self):
-        """
-        This method resets the properties of the instance.
-        """
-        self.current_voices = []
-        self.global_vars = {}
-        self.vars = {}
-        self.instruments = {}
-        self.data = {}
-        self.global_lines = []
-
-    def getDataForVoice(self, voice, key):
-        if not voice in self.data:
-            return None
-
-        if not key in self.data[voice]:
-            return None
-                                </code>
-                            </pre>
-</div>
-</div>
-<p>&nbsp;</p>
-<div class="formatter-container formatter-code code-css"><span id="copy-code-3" class="copy-code" title="Copier vers le presse-papier"> <em class="fa fa-clipboard"> <span class="copy-code-txt">Copier vers le presse-papier</span> </em> </span> <span class="formatter-title">Code css :</span>
-<div id="copy-code-3-content" class="formatter-content copy-code-content">
-<pre>                                <code data-language="css">
-pre {
-    background: #0B1022;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
-    margin: 0px;
-    padding: 0px;
-    padding: 10px;
-    color: #fff;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-pre, code {
-    font-family: 'Monaco', courier, monospace;
-}
-
-pre .comment {
-    color: #727272;
-}
-                                </code>
-                            </pre>
-</div>
-</div>
-<p>&nbsp;</p>
-
-
-
-
-
-
-<div class="formatter-container formatter-code code-css"><span id="copy-code-1" class="copy-code" title="Copier vers le presse-papier"> <em class="fa fa-clipboard"> <span class="copy-code-txt">Copier vers le presse-papier</span> </em> </span> <span class="formatter-title">Code css :</span>
-    <div id="copy-code-1-content" class="formatter-content copy-code-content">
-    <pre>                                <code data-language="css">
-    pre, code {
-        font-family: 'Monaco', courier, monospace;
-    }
-                                    </code></pre>
-    </div>
-    </div>
-    <p>&nbsp;</p>
-
-
-
-
-
-
-
-
-
 
 
 
