@@ -170,6 +170,37 @@ Route::prefix('/')
 
     </code></pre>
 
+
+    <div class="formatter-container formatter-code code-BASH"><span id="copy-code-1" class="copy-code" title="Copier vers le presse-papier"><em class="fa fa-clipboard"><span class="copy-code-txt">Copier vers le presse-papier</span></em></span><span class="formatter-title">Code python :</span>
+        <div id="copy-code-1-content" class="formatter-content copy-code-content">
+        <pre class="">                        <code data-language="python">
+        class WarpWhistle(object):
+            TEMPO = 'tempo'
+            VOLUME = 'volume'
+            TIMBRE = 'timbre'
+            ARPEGGIO = 'arpeggio'
+            INSTRUMENT = 'instrument'
+            PITCH = 'pitch'
+            OCTAVE = 'octave'
+            SLIDE = 'slide'
+            Q = 'q'
+
+            ABSOLUTE_NOTES = 'X-ABSOLUTE-NOTES'
+            TRANSPOSE = 'X-TRANSPOSE'
+            COUNTER = 'X-COUNTER'
+            X_TEMPO = 'X-TEMPO'
+            SMOOTH = 'X-SMOOTH'
+            N106 = 'EX-NAMCO106'
+            FDS = 'EX-DISKFM'
+            VRC6 = 'EX-VRC6'
+            PITCH_CORRECTION = 'PITCH-CORRECTION'
+
+            CHIP_N106 = 'N106'
+            CHIP_FDS = 'FDS'
+            CHIP_VRC6 = 'VRC6'</code></pre>
+        </div>
+        </div>
+        <p>&nbsp;</p>
                     <div class="spacer"></div>
 
                     @include('layouts.wiki_footer')

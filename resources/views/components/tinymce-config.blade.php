@@ -53,6 +53,11 @@
                 '/user/templates/user.css',
                 '/user/templates/upload.css',
                 '/templates/pages.css',
+                '/rainbow/themes/css/github.css',
+                'rainbow/src/language/generic.js',
+                'rainbow/src/language/python.js',
+                'rainbow/src/language/php.js',
+                'rainbow/dist/rainbow.js',
         ],
 
 
@@ -85,6 +90,7 @@
 
         external_plugins: {
             'insertNote' : 'plugins/insertNote.js',
+            'insertCode' : 'plugins/insertCode.js',
             'titres' : 'plugins/titres.js',
             'dates' : 'plugins/date.js',
         },
@@ -101,7 +107,7 @@
             help: { title: 'Help', items: 'help' }
         },
 
-        toolbar: "insertfile undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | splitDateButton insertNote splitTitreButton splitParagraphMarginLeft",
+        toolbar: "insertfile undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | splitDateButton insertNote insertCode splitTitreButton splitParagraphMarginLeft",
 
         // toolbar: "undo redo | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table media pageembed | lineheight  outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print export | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck",
 
