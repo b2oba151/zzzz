@@ -62,23 +62,24 @@
 
 
         // Formats personnaliser
-        // block_formats: 'Paragraph=p; Header 1=h1; Header 2=h2; Header 3=h3',
-        // formats: {
-        //     alignleft: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'left' },
-        //     aligncenter: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'center' },
-        //     alignright: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'right' },
-        //     alignfull: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'full' },
-        //     bold: { inline: 'span', classes: 'bold' },
-        //     italic: { inline: 'span', classes: 'italic' },
-        //     underline: { inline: 'span', classes: 'underline', exact: true },
-        //     strikethrough: { inline: 'del' },
-        //     customformat: { inline: 'span', styles: { color: '#00ff00', fontSize: '20px' }, attributes: { title: 'My custom format'} , classes: 'example1'},
-        //     Titre1_P: { block: 'h2', attributes: { id: 'My custom format'} , classes: 'formatter-title wiki-paragraph-2'},
-        // },
         // style_formats: [
-        //     { title: 'Custom format', format: 'customformat' },
-        //     { title: 'Titre1_P',  format: 'Titre1_P' },
+        //     { title: "Headers", items: [
+        //         { title: "Header 1", format: "h1" },
+        //         { title: "Header 2", format: "h2" },
+        //     ]},
+        //         { title: 'Custom format', format: 'customformat' },
+        //         { title: 'Custom waper', format: 'custom-wrapper' },
         // ],
+        // formats: {
+        //     // Changes the default format for h1 to have a class of heading
+        //     h1: { block: 'h1', classes: 'formatter-title wiki-paragraph-2', attributes: {'id': function () { return 'heading_' + new Date().getTime();  } } },
+        //     'custom-wrapper': { block: 'div', classes: 'wrapper', wrapper: true },
+        //     customformat: { inline: 'span', styles: { color: '#00ff00', fontSize: '20px' }, attributes: { title: 'My custom format'} , classes: 'example1'},
+        //     //     alignleft: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'left' },
+        //     //     aligncenter: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'center' },
+        //     //     alignright: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'right' },
+        //     //     alignfull: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img,audio,video', classes: 'full' },
+        // },
 
 
 
@@ -102,7 +103,7 @@
             help: { title: 'Help', items: 'help' }
         },
 
-        toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | insertCode mybutton  toggleDateButton splitDateButton menuDateButton dialogue-example insertNote splitTitreButton splitParagraphMarginLeft",
+        toolbar: "insertfile undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl | insertCode mybutton  toggleDateButton splitDateButton menuDateButton dialogue-example insertNote splitTitreButton splitParagraphMarginLeft",
 
         // toolbar: "undo redo | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table media pageembed | lineheight  outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print export | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck",
 
