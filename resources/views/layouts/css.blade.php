@@ -53,5 +53,7 @@ paraiso-light | pastie |rainbow | solarized-dark | solarized-light | sunburst |t
 <script src="{{ asset('rainbow/src/language/generic.js') }}"></script>
 <script src="{{ asset('rainbow/src/language/python.js') }}"></script>
 <script src="{{ asset('rainbow/src/language/php.js') }}"></script>
+<script src="{{ asset('rainbow/src/language/shell.js') }}"></script>
+<script src="{{ asset('rainbow/src/language/css.js') }}"></script>
 
 {{-- fin code highlight --}}
