@@ -1,4 +1,11 @@
 (function () {
+    let codeCounter = 0; // Variable globale pour stocker le compteur
+
+    function generateUniqueId() {
+        codeCounter++;
+        return `copy-code-${codeCounter}`;
+    }
+
     tinymce.PluginManager.add("insertCode", function (editor) {
         const dialogConfig = {
             title: "Inserer Highlght code",
@@ -25,8 +32,8 @@
                                 { text: 'Bash', value: 'bash' },
                                 { text: 'PowerShell', value: 'powershell' }
                             ]}
-                            ]
-                        },
+                        ]
+                    },
                     {
                         type: "textarea",
                         name: "codeTexte",
@@ -63,18 +70,26 @@
                 const data = api.getData();
                 const checkbox = data.isNewLine ? "true" : "false";
 
+                const uniqueId = generateUniqueId(); // Utiliser la fonction pour générer un ID unique
+
                 tinymce.activeEditor.execCommand(
                     "mceInsertContent",
                     false,
 
-                    `<div class="formatter-container formatter-code code-BASH"><span id="copy-code-1" class="copy-code" title="Copier vers le presse-papier"><em class="fa fa-clipboard"><span class="copy-code-txt">Copier vers le presse-papier</span></em></span><span class="formatter-title">Code ${data.selectedLanguage} :</span>
-                    <div id="copy-code-1-content" class="formatter-content copy-code-content">
-                    <pre>
-                        <code data-language="${data.selectedLanguage}">
+                    `<div class="formatter-container formatter-code code-${data.selectedLanguage}">
+                        <span id="${uniqueId}" class="copy-code" title="Copier vers le presse-papier">
+                            <em class="fa fa-clipboard">
+                                <span class="copy-code-txt">Copier vers le presse-papier</span>
+                            </em>
+                        </span>
+                        <span class="formatter-title">Code ${data.selectedLanguage} :</span>
+                        <div id="${uniqueId}-content" class="formatter-content copy-code-content">
+                            <pre>
+                                <code data-language="${data.selectedLanguage}">
 ${data.codeTexte}
-                        </code>
-                    </pre>
-                    </div>
+                                </code>
+                            </pre>
+                        </div>
                     </div><br/>`
                 );
                 api.close();
